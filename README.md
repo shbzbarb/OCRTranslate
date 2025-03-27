@@ -44,3 +44,61 @@ Activate Environment
 ```sh
  conda activate OCR_Translate
 ```
+
+## Pipeline Workflow
+### Input Images
+- Stored in: ./data/raw
+- Accepted formats: .jpg, .jpeg, .png, .bmp, .tiff
+
+### OCR Extraction (EasyOCR)
+- Extracts text, splits suffixes (-en, -s) clearly
+- Annotates bounding boxes in images
+- Saves structured CSVs (full_text;root_token;suffix;confidence) with confidence scores
+
+### Text Preprocessing & Cleanup
+- Cleans redundant whitespace & special characters.
+- Filters out low-confidence or garbage OCR rows.
+
+### Translation (German → English)
+- Uses Helsinki-NLP OpusMT model [link](https://huggingface.co/Helsinki-NLP/opus-mt-de-en)
+- Cleans translated texts: removes repeated words, braces, noise ({}, ♪, -)
+- Removes meaningless translations or repeated tokens
+
+### Output Data
+- Final CSVs (full_text;english_text) saved in ./data/final
+- CSV encoding (utf-8-sig) & delimiters (;)
+
+## Modules & Scripts
+### OCR Module (ocr.py)
+- Performs OCR extraction and CSV annotation
+- CSV Columns:
+- full_text: Original extracted phrase
+- root_token: Primary word(s) without suffix
+- suffix: Extracted suffix (if any, e.g., -en)
+- confidence: OCR confidence (0.00 to 1.00)
+
+### Translation Module (translate.py)
+- Translates extracted German text into English
+- Pre-translation filters:
+- Valid German words (letters, spaces, hyphens)
+- Post-translation filters:
+- Eliminates short translations and repeated-word noise
+- Removes symbols (♪, braces {}, hyphens -)
+
+### Pipeline Runner (run_pipeline.py)
+- High-level execution script combining OCR and translation steps
+- Saves output CSVs and annotated images clearly structured
+
+### Utilities (utils.py)
+- Common helper methods for file handling & directory creation.
+
+### Tests
+- Uses pytest framework
+- Automated testing of OCR, translation, and full pipeline execution
+
+## Execution and Usage
+Running the complete pipeline
+```sh
+python scripts/run_pipeline.py
+```
+- Verify the ```./data/processed```, ```./data/translated```, and ```./data/final``` folders for results
