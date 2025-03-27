@@ -127,17 +127,17 @@ pytest -q
 ### Conclusion
 The pipeline robustly processes German text images, extracts clean textual data, translates it accurately, and generates structured data compatible with spreadsheet tools
 
-### Possible Future Enhancements:
+### Possible Future Enhancements
 - More Languages: Extend support beyond German & English
 - Advanced Cleanup: Further improve post-translation cleanup using NLP techniques
 
 
 ## References
-### OCR (EasyOCR):
+### OCR (EasyOCR)
 - **GitHub Repository**: [https://github.com/JaidedAI/EasyOCR](https://github.com/JaidedAI/EasyOCR)
 - **Documentation**: [https://www.jaided.ai/easyocr/](https://www.jaided.ai/easyocr/)
 
-### Translation (Helsinki-NLP MarianMT):
+### Translation (Helsinki-NLP MarianMT)
 - **Hugging Face Model Hub**: [https://huggingface.co/Helsinki-NLP](https://huggingface.co/Helsinki-NLP)
 - **MarianMT Paper**: Jörg Tiedemann, Santhosh Thottingal (2020). [OPUS-MT — Building open translation services for the World](https://www.aclweb.org/anthology/2020.eamt-1.61.pdf). *Proceedings of the 22nd Annual Conference of the European Association for Machine Translation (EAMT)*
 
