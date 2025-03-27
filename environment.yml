@@ -1,0 +1,20 @@
+name: OCR_Translate
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+dependencies:
+  - python=3.9
+  - pytorch=2.0.1
+  - torchvision=0.15.2
+  - torchaudio=2.0.2
+  - cudatoolkit=11.8
+  - pip
+  - pip:
+    - easyocr
+    - transformers
+    - streamlit
+    - opencv-python-headless
+    - sentencepiece
+    - python-multipart
+    - protobuf<4.0.0
