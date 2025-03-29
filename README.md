@@ -6,8 +6,8 @@ Learning a new language can be challenging, particularly when it comes to buildi
 - Comprehensive error handling & noise filtering
 - Storing the final structured data in CSV format for easy reference and vocabulary building
 
-## Demo
-### Coming Soon...
+## HuggingFace Demo
+[HuggingFace Link](https://huggingface.co/spaces/ahmdshbz/OCRTranslation)
 
 
 ## Project Structure
