@@ -7,7 +7,7 @@ Learning a new language can be challenging, particularly when it comes to buildi
 - Storing the final structured data in CSV format for easy reference and vocabulary building
 
 ## Demo
-[Streamlit Demo Link](https://ocrtranslation.streamlit.app/)
+### Coming Soon...
 
 
 ## Project Structure
